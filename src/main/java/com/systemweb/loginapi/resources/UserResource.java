@@ -1,5 +1,6 @@
 package com.systemweb.loginapi.resources;
 
+import com.systemweb.loginapi.dto.UserDTO;
 import com.systemweb.loginapi.entities.User;
 import com.systemweb.loginapi.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +20,8 @@ public class UserResource {
     @Autowired
     private UserService service;
     @GetMapping
-    public ResponseEntity<List<User>> findAll() {
-        List<User> list = service.findAll();
+    public ResponseEntity<List<UserDTO>> findAll() {
+        List<UserDTO> list = service.findAll();
         return ResponseEntity.ok(list);
     }
 }
