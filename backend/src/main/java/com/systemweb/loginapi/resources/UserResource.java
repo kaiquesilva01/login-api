@@ -12,12 +12,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/users")
+@CrossOrigin(origins = "http://127.0.0.1:5500/")
 public class UserResource {
 
     @Autowired
     private UserService service;
 
-    @CrossOrigin(origins = "*")
+
     @GetMapping
     public ResponseEntity<List<UserDTO>> findAll() {
         List<UserDTO> list = service.findAll();

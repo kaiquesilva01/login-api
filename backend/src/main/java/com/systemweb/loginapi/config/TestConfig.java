@@ -23,7 +23,5 @@ public class TestConfig implements CommandLineRunner {
         u1.setPhone("11999988888");
         u1.setPassword("12345abcde");
         userRepository.saveAll(List.of(u1));
-
-
     }
 }

@@ -16,12 +16,12 @@ public class UserService {
     private UserRepository repository;
 
     public List<UserDTO> findAll() {
-        List<User> list = repository.findAll();
+        var list = repository.findAll();
         return list.stream().map(UserDTO::new).collect(Collectors.toList());
     }
     public UserDTO insert(User obj) {
         repository.save(obj);
-        UserDTO entity = new UserDTO(obj);
+        var entity = new UserDTO(obj);
         return entity;
     }
 }
