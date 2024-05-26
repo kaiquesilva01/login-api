@@ -2,27 +2,35 @@
 function Request() {
     var xhr = new XMLHttpRequest();
 
-    xhr.responseType = "json"
+     xhr.responseType = "json"
     xhr.open("GET", "http://localhost:8080/users");
     xhr.send();
-    xhr.onreadystatechange = function() {
-         if(xhr.readyState == 4 && xhr.status == 200){
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
             var document = xhr.response;
             displayObjects(document); // Chama a função para exibir os objetos
-         } 
-    }  
+            
+        }
+    }
 }
-
 function displayObjects(objects) {
-    var contentDiv = document.getElementById('content');
-    contentDiv.innerHTML = ''; // Limpa o conteúdo anterior
-
-    objects.forEach(function(object) {
-        var objectDiv = document.createElement('div');
-        objectDiv.textContent = JSON.stringify(object);
-        contentDiv.appendChild(objectDiv);
+    var contentDiv = document.getElementById('list');
+    // contentDiv.innerHTML = ''; // Limpa o conteúdo anterior
+    // document.getElementById("test").value = objects[0].id
+    objects.forEach(function (object) {
+        var objectDiv = document.createElement('li');
+        objectDiv.textContent = JSON.parse(object.id);
+        contentDiv.appendChild(objectDiv); //problema ta aqui
     });
 }
+
+
+const nomes = ['Whinds', 'Freeway', 'Teste', 'Maria'];
+
+nomes.forEach(function(nome) {
+    console.log('[forEach]', nome);
+})
+
 
 
 

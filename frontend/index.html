@@ -6,8 +6,34 @@
     <title>Document</title>
 </head>
 <body>
+    <div id="Register">
+        <input id="email" placeholder="ColoqueSeu@email.com"></input>
+        <input id="password" placeholder="Sua senha"></input>
+        <button id="btn" onclick="">Insert</button>
+    </div><br>
+
+    <div id="Login">
+        <input id="email" placeholder="ColoqueSeu@email.com"></input>
+        <input id="password" placeholder="Sua senha"></input>
+        <button id="btn" onclick="">Login</button>
+    </div><br>
+
+    <div id="Delete">
+        <input id="email" placeholder="ColoqueSeu@email.com"></input>
+        <input id="password" placeholder="Sua senha"></input>
+        <button id="btn" onclick="">Delete</button>
+    </div><br>
+    <div>
+        <ul id="list">
+            <li>object.id</li>
+            <li>object.name</li>
+            <li>object.email</li>
+            <li>object.phone</li>
+        </ul>
+    </div>
+
+    <button id="btn" onclick="Request()">Usuários Cadastrados</button>
     <div id="content"></div>
-    <button id="btn" onclick="Request()">Load Users</button>
     <script src="controller.js"></script>
 </body>
 </html>
