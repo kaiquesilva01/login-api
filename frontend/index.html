@@ -6,8 +6,20 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="content"></div>
-    <button id="btn" onclick="Request()">Load Users</button>
+    <div id="Register">
+        <input id="name" placeholder="Seu Nome" ></input>
+        <input id="email" placeholder="ColoqueSeu@email.com" ></input>
+        <input id="password" placeholder="Sua senha" ></input>
+        <input id="phone" placeholder="Celular" ></input>
+        <button onclick="Register()">Cadastrar</button>    
+    </div><br>
+
+    <button id="btn4" onclick="RequestAll()">Usuários Cadastrados</button>
+    <div>
+        <ul id="list">
+        </ul>
+    </div>
+
     <script src="controller.js"></script>
 </body>
 </html>
