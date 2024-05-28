@@ -7,33 +7,19 @@
 </head>
 <body>
     <div id="Register">
-        <input id="email" placeholder="ColoqueSeu@email.com"></input>
-        <input id="password" placeholder="Sua senha"></input>
-        <button id="btn" onclick="">Insert</button>
+        <input id="name" placeholder="Seu Nome" ></input>
+        <input id="email" placeholder="ColoqueSeu@email.com" ></input>
+        <input id="password" placeholder="Sua senha" ></input>
+        <input id="phone" placeholder="Celular" ></input>
+        <button onclick="Register()">Cadastrar</button>    
     </div><br>
 
-    <div id="Login">
-        <input id="email" placeholder="ColoqueSeu@email.com"></input>
-        <input id="password" placeholder="Sua senha"></input>
-        <button id="btn" onclick="">Login</button>
-    </div><br>
-
-    <div id="Delete">
-        <input id="email" placeholder="ColoqueSeu@email.com"></input>
-        <input id="password" placeholder="Sua senha"></input>
-        <button id="btn" onclick="">Delete</button>
-    </div><br>
+    <button id="btn4" onclick="RequestAll()">Usuários Cadastrados</button>
     <div>
         <ul id="list">
-            <li>object.id</li>
-            <li>object.name</li>
-            <li>object.email</li>
-            <li>object.phone</li>
         </ul>
     </div>
 
-    <button id="btn" onclick="Request()">Usuários Cadastrados</button>
-    <div id="content"></div>
     <script src="controller.js"></script>
 </body>
 </html>

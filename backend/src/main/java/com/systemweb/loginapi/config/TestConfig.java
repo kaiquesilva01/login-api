@@ -29,7 +29,7 @@ public class TestConfig implements CommandLineRunner {
         u2.setEmail("joao@gmail.com");
         u2.setPhone("1198478321");
         u2.setPassword("12345abcde");
-        userRepository.saveAll(List.of(u1));
+        userRepository.saveAll(List.of(u2));
     }
 
 

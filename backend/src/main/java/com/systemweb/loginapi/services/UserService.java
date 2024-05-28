@@ -5,6 +5,7 @@ import com.systemweb.loginapi.entities.User;
 import com.systemweb.loginapi.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,9 +20,26 @@ public class UserService {
         var list = repository.findAll();
         return list.stream().map(UserDTO::new).collect(Collectors.toList());
     }
-    public UserDTO insert(User obj) {
-        repository.save(obj);
-        var entity = new UserDTO(obj);
-        return entity;
+
+    @Transactional
+    public UserDTO insert(UserDTO dto) {
+        User entity = new User();
+        copyDtoToEntity(dto,entity);
+        repository.save(entity);
+        return new UserDTO(entity);
+    }
+
+
+
+
+
+
+
+
+    private void copyDtoToEntity(UserDTO dto , User entity) {
+        entity.setName(dto.getName());
+        entity.setEmail(dto.getEmail());
+        entity.setPassword(dto.getPassword());
+        entity.setPhone(dto.getPhone());
     }
 }
