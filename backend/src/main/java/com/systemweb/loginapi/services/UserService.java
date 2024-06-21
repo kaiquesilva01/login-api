@@ -4,6 +4,7 @@ import com.systemweb.loginapi.dto.UserDTO;
 import com.systemweb.loginapi.entities.User;
 import com.systemweb.loginapi.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -37,11 +38,18 @@ public class UserService {
         return new UserDTO(entity);
     }
 
-
-
-
-
-
+    @Transactional
+    public void delete(Long id) {
+        if(!repository.existsById(id)) {
+            throw new RuntimeException("Não encontrado");
+        }
+        try {
+            repository.deleteById(id);
+        }
+        catch (DataIntegrityViolationException e) {
+                throw new RuntimeException();
+        }
+    }
 
 
     private void copyDtoToEntity(UserDTO dto , User entity) {
