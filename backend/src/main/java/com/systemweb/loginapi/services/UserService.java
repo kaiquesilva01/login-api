@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -19,6 +20,13 @@ public class UserService {
     public List<UserDTO> findAll() {
         var list = repository.findAll();
         return list.stream().map(UserDTO::new).collect(Collectors.toList());
+    }
+
+    @Transactional(readOnly = true)
+    public UserDTO findById(Long id) {
+        Optional<User> obj = repository.findById(id);
+        User entity = obj.orElseThrow(() -> new RuntimeException("Not found"));
+        return new UserDTO(entity);
     }
 
     @Transactional

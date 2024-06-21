@@ -27,6 +27,12 @@ public class UserResource {
         return ResponseEntity.ok(list);
     }
 
+    @GetMapping(value = "{id}")
+    public ResponseEntity<UserDTO> findById(@PathVariable Long id) {
+        UserDTO entity = service.findById(id);
+        return ResponseEntity.ok(entity);
+    }
+
     @PostMapping
     public ResponseEntity<UserDTO> insert(@RequestBody UserDTO dto) {
         dto = service.insert(dto);
